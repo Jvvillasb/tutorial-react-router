@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 import { getInvoices } from "../../data";
 import "./styles.css";
+import QueryNavLink from "../../components/QueryLink";
 
 export default function Invoices() {
   const invoices = getInvoices();
@@ -33,17 +34,18 @@ export default function Invoices() {
             const name = invoice.name.toLowerCase();
             return name.startsWith(filter.toLowerCase());
           })
-          
+
           .map((invoice) => (
-            <NavLink
-              className={({ isActive }) =>
+            <QueryNavLink
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              className={({ isActive }: any) =>
                 isActive ? "dblock nav-red" : "dblock nav-blue"
               }
               to={`/invoices/${invoice.number}`}
               key={invoice.number}
             >
               {invoice.name}
-            </NavLink>
+            </QueryNavLink>
           ))}
       </nav>
       <Outlet />
