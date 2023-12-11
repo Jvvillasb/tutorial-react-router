@@ -1,4 +1,5 @@
-import { NavLink, Outlet, useSearchParams } from "react-router-dom";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Outlet, useSearchParams } from "react-router-dom";
 import { getInvoices } from "../../data";
 import "./styles.css";
 import QueryNavLink from "../../components/QueryLink";
@@ -37,7 +38,6 @@ export default function Invoices() {
 
           .map((invoice) => (
             <QueryNavLink
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               className={({ isActive }: any) =>
                 isActive ? "dblock nav-red" : "dblock nav-blue"
               }
