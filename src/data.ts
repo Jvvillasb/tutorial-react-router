@@ -1,3 +1,4 @@
+//faturas
 let invoices = [
     {
       name: "Santa Monica",
@@ -31,16 +32,19 @@ let invoices = [
     },
   ];
   
+  //busca todas faturas
   export function getInvoices() {
     return invoices;
   }
 
+  //busca uma fatura pelo number
   export function getInvoice(number: number) {
     return invoices.find(
       (invoice) => invoice.number === number
     );
   }
 
+  //delete uma fatura pelo number
   export function deleteInvoice(number: number) {
     invoices = invoices.filter(
       (invoice) => invoice.number !== number
